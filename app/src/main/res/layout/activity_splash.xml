@@ -17,7 +17,7 @@
         android:textSize="@dimen/slash_screen_text_size"
         android:fontFamily="cursive"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
