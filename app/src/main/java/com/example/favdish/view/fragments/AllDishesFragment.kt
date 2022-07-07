@@ -31,7 +31,7 @@ class AllDishesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentAllDishesBinding.inflate(inflater, container, false)
         val root: View = binding.root

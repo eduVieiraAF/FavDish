@@ -13,11 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FavDish"
         tools:targetApi="31" >
+
         <activity
             android:name=".view.activities.AddUpdateActivity"
+            android:theme="@style/Theme.FavDish.NoActionBar"
+            android:label="Add Dish"
+            android:configChanges="orientation"
             android:exported="false" />
         <activity
             android:name=".view.activities.SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -23,7 +23,6 @@ class SplashActivity : AppCompatActivity() {
 
         setContentView(splashBinding.root)
 
-        supportActionBar!!.hide()
         // getting rid of the status bar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) window.insetsController?.hide(
             WindowInsets.Type.statusBars()
