@@ -21,4 +21,6 @@
     <string name="lbl_camera">Camera</string>
     <string name="lbl_gallery">Gallery</string>
 
+    <string name="ad_go_to_settings">"GO TO SETTINGS"</string>
+
 </resources>
