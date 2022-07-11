@@ -16,6 +16,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.example.favdish.R
 import com.example.favdish.databinding.ActivityAddUpdateBinding
 import com.example.favdish.databinding.DialogCustomImageSelectionBinding
@@ -138,7 +139,12 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
                 data?.extras?.let {
                     val thumbnail: Bitmap = data.extras!!.get("data") as Bitmap
 
-                    mBinding.ivDishImage.setImageBitmap(thumbnail)
+                    Glide.with(this)
+                        .load(thumbnail)
+                        .centerCrop()
+                        .placeholder(R.drawable.placeholder)
+                        .into(mBinding.ivDishImage)
+
                     mBinding.ivAddDishImage.setImageDrawable(
                         ContextCompat.getDrawable(this, R.drawable.ic_vector_edit)
                     )
@@ -149,7 +155,12 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
                 data?.let {
                     val selectedPhotoURI = data.data
 
-                    mBinding.ivDishImage.setImageURI(selectedPhotoURI)
+                    Glide.with(this)
+                        .load(selectedPhotoURI)
+                        .centerCrop()
+                        .placeholder(R.drawable.placeholder)
+                        .into(mBinding.ivDishImage)
+
                     mBinding.ivAddDishImage.setImageDrawable(
                         ContextCompat.getDrawable(this, R.drawable.ic_vector_edit)
                     )
