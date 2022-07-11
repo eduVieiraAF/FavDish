@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -98,11 +99,11 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(p0: PermissionGrantedResponse?) {
-                        Toast.makeText(
-                            this@AddUpdateActivity,
-                            "You now have access to the gallery",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        val galleryIntent = Intent(
+                            Intent.ACTION_PICK,
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                        )
+                        startActivityForResult(galleryIntent, GALLERY)
                     }
 
                     override fun onPermissionDenied(p0: PermissionDeniedResponse?) {
@@ -143,7 +144,19 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
                     )
                 }
             }
-        }
+
+            if (requestCode == GALLERY) {
+                data?.let {
+                    val selectedPhotoURI = data.data
+
+                    mBinding.ivDishImage.setImageURI(selectedPhotoURI)
+                    mBinding.ivAddDishImage.setImageDrawable(
+                        ContextCompat.getDrawable(this, R.drawable.ic_vector_edit)
+                    )
+                }
+            }
+        } else if  (resultCode == Activity.RESULT_CANCELED) Log.e("Canceled",
+            "Image not selected")
     }
 
     private fun showRationalDialogForPermission() {
@@ -167,5 +180,6 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         private const val CAMERA = 1
+        private const val GALLERY = 2
     }
 }
