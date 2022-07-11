@@ -120,10 +120,7 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun showRationalDialogForPermission() {
         AlertDialog.Builder(this)
-            .setMessage(
-                "It seems you have declined permissions required for this feature. " +
-                        "Go to Application Settings to enable these permissions."
-            )
+            .setMessage(R.string.ad_permissions_denied)
             .setPositiveButton(R.string.ad_go_to_settings) { _, _ ->
                 try {
                     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)

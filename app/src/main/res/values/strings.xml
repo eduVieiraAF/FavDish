@@ -22,5 +22,7 @@
     <string name="lbl_gallery">Gallery</string>
 
     <string name="ad_go_to_settings">"GO TO SETTINGS"</string>
+    <string name="ad_permissions_denied">"It seems you have declined permissions required for
+        this feature. Go to Application Settings to enable these permissions."</string>
 
 </resources>
