@@ -21,7 +21,7 @@ object Constants {
         return list
     }
 
-    fun dishCategories(): ArrayList<String> {
+    fun  dishCategories(): ArrayList<String> {
         val list = ArrayList<String>()
 
         list.add("Pizza")
