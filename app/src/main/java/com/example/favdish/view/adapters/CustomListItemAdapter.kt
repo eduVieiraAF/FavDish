@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.favdish.databinding.ItemCustomListBinding
+import com.example.favdish.view.activities.AddUpdateActivity
 
 class CustomListItemAdapter(
     private val activity: Activity,
@@ -30,6 +31,9 @@ class CustomListItemAdapter(
         val item = listItems[position]
 
         holder.tvText.text = item
+        holder.itemView.setOnClickListener {
+            if (activity is AddUpdateActivity) activity.selectedListItem(item, selection)
+        }
     }
 
     override fun getItemCount(): Int {

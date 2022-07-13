@@ -4,7 +4,7 @@ object Constants {
 
     const val DISH_TYPE: String = "DishType"
     const val DISH_CATEGORY: String = "DishCategory"
-    const val DISH_COOKING_TYPE: String = "DishCookingTime"
+    const val DISH_COOKING_TIME: String = "DishCookingTime"
 
     fun dishTypes(): ArrayList<String> {
         val list = ArrayList<String>()

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -47,6 +48,7 @@ import java.util.*
 class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var mBinding: ActivityAddUpdateBinding
     private var mImagePath: String = ""
+    private lateinit var mCustomListDialog: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,10 +59,10 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
         setupActionBar()
 
         mBinding.ivAddDishImage.setOnClickListener(this)
-
         mBinding.etType.setOnClickListener(this)
         mBinding.etCategory.setOnClickListener(this)
         mBinding.etCookingTime.setOnClickListener(this)
+        mBinding.btnAddDish.setOnClickListener(this)
 
     }
 
@@ -103,10 +105,71 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
                     customItemsListDialog(
                         resources.getString(R.string.title_select_dish_cooking_time),
                         Constants.dishCookingTime(),
-                        Constants.DISH_COOKING_TYPE
+                        Constants.DISH_COOKING_TIME
                     )
 
                     return
+                }
+
+                R.id.btn_add_dish -> {
+                    val title = mBinding.etTitle.text.toString().trim { it <= ' ' }
+                    val type = mBinding.etType.text.toString().trim { it <= ' ' }
+                    val category = mBinding.etCategory.text.toString().trim { it <= ' ' }
+                    val ingredients = mBinding.etIngredients.text.toString().trim { it <= ' ' }
+                    val cookingTimeInMinutes = mBinding.etCookingTime.text.toString()
+                        .trim { it <= ' ' }
+                    val cookingDirections = mBinding.etDirectionToCook.text.toString()
+                        .trim { it <= ' ' }
+
+                    when {
+                        TextUtils.isEmpty(mImagePath) -> Toast.makeText(
+                            this@AddUpdateActivity,
+                            resources.getString(R.string.err_msg_select_dish_image),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        TextUtils.isEmpty(title) -> Toast.makeText(
+                            this@AddUpdateActivity,
+                            resources.getString(R.string.err_msg_enter_dish_title),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        TextUtils.isEmpty(type) -> Toast.makeText(
+                            this@AddUpdateActivity,
+                            resources.getString(R.string.err_msg_select_dish_type),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        TextUtils.isEmpty(category) -> Toast.makeText(
+                            this@AddUpdateActivity,
+                            resources.getString(R.string.err_msg_select_dish_category),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        TextUtils.isEmpty(ingredients) -> Toast.makeText(
+                            this@AddUpdateActivity,
+                            resources.getString(R.string.err_msg_enter_dish_ingredients),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        TextUtils.isEmpty(cookingTimeInMinutes) -> Toast.makeText(
+                            this@AddUpdateActivity,
+                            resources.getString(R.string.err_msg_select_dish_cooking_time),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        TextUtils.isEmpty(cookingDirections) -> Toast.makeText(
+                            this@AddUpdateActivity,
+                            resources.getString(R.string.err_msg_enter_dish_cooking_directions),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        else -> Toast.makeText(
+                            this@AddUpdateActivity,
+                            "Looking good, dish will be saved",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
         }
@@ -180,6 +243,25 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         dialog.show()
+    }
+
+    fun selectedListItem(item: String, selection: String) {
+        when (selection) {
+            Constants.DISH_TYPE -> {
+                mBinding.etType.setText(item)
+                mCustomListDialog.dismiss()
+            }
+
+            Constants.DISH_CATEGORY -> {
+                mBinding.etCategory.setText(item)
+                mCustomListDialog.dismiss()
+            }
+
+            Constants.DISH_COOKING_TIME -> {
+                mBinding.etCookingTime.setText(item)
+                mCustomListDialog.dismiss()
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -293,16 +375,16 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun customItemsListDialog(title: String, itemsList: List<String>, selection: String) {
-        val customListDialog = Dialog(this)
+        mCustomListDialog = Dialog(this)
         val binding: DialogCustomListBinding = DialogCustomListBinding.inflate(layoutInflater)
 
-        customListDialog.setContentView(binding.root)
+        mCustomListDialog.setContentView(binding.root)
         binding.tvTitle.text = title
         binding.rvList.layoutManager = LinearLayoutManager(this)
 
         val adapter = CustomListItemAdapter(this, itemsList, selection)
         binding.rvList.adapter = adapter
-        customListDialog.show()
+        mCustomListDialog.show()
     }
 
     companion object {
