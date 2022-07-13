@@ -17,5 +17,4 @@ data class FavDish(
     @ColumnInfo(name = "favorite_dish") val favoriteDish: Boolean = false,
 
     @PrimaryKey(autoGenerate = true) val id: Int = 0
-
 )
