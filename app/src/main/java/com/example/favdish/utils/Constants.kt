@@ -16,7 +16,7 @@ object Constants {
         list.add("Salad")
         list.add("Side dish")
         list.add("Dessert")
-        list.add("other")
+        list.add("Other")
 
         return list
     }
@@ -37,7 +37,7 @@ object Constants {
         list.add("Sandwiches")
         list.add("Tea & Coffee")
         list.add("Wraps")
-        list.add("other")
+        list.add("Other")
 
         return list
     }
