@@ -8,7 +8,7 @@ import com.example.favdish.model.entities.FavDish
 import kotlinx.coroutines.launch
 
 class FavDishViewModel(private val repository: FavDishRepository) : ViewModel() {
-    fun insert(dish: FavDish) = viewModelScope.launch { repository.insertFavDishData(dish) }
+    fun insert(dish: FavDish) = viewModelScope.launch { repository.insertFavDishData(dish)}
 }
 
 class FavDishViewModelFactory(private val repository: FavDishRepository): ViewModelProvider.Factory {
