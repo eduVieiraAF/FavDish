@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.favdish.databinding.FragmentNotificationsBinding
 import com.example.favdish.viewmodel.NotificationsViewModel
 
-class NotificationsFragment : Fragment() {
+class RandomDishFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
 

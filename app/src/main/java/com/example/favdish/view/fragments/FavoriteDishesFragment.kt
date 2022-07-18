@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.favdish.databinding.FragmentDashboardBinding
 import com.example.favdish.viewmodel.DashboardViewModel
 
-class DashboardFragment : Fragment() {
+class FavoriteDishesFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
 
