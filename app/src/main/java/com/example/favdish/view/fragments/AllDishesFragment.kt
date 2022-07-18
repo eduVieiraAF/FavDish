@@ -8,10 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.favdish.R
 import com.example.favdish.application.FavDishApplication
 import com.example.favdish.databinding.FragmentAllDishesBinding
 import com.example.favdish.view.activities.AddUpdateActivity
+import com.example.favdish.view.adapters.FavDishAdapter
 import com.example.favdish.viewmodel.FavDishViewModel
 import com.example.favdish.viewmodel.FavDishViewModelFactory
 import com.example.favdish.viewmodel.HomeViewModel
@@ -27,6 +29,8 @@ class AllDishesFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    private lateinit var mBinding: FragmentAllDishesBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -37,26 +41,31 @@ class AllDishesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
 
-        _binding = FragmentAllDishesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        mBinding = FragmentAllDishesBinding.inflate(inflater, container, false)
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        return mBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mBinding.rvDishesList.layoutManager = GridLayoutManager(requireActivity(), 2)
+
+        val favDishAdapter = FavDishAdapter(this@AllDishesFragment)
+
+        mBinding.rvDishesList.adapter = favDishAdapter
+
         mFavDishViewModel.allDishesList.observe(viewLifecycleOwner) { dishes ->
             dishes.let {
-                for (item in it) {
-                    Log.i("Dish Title", "${item.id} :: ${item.title}")
+                if (it.isNotEmpty()){
+                    mBinding.rvDishesList.visibility = View.VISIBLE
+                    mBinding.tvNoDishesAddedYet.visibility = View.GONE
+
+                    favDishAdapter.dishesList(it)
+                } else {
+                    mBinding.rvDishesList.visibility = View.GONE
+                    mBinding.tvNoDishesAddedYet.visibility = View.VISIBLE
                 }
             }
         }
