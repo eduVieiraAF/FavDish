@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">FavDish</string>
-    <string name="title_home">All dishes</string>
-    <string name="title_dashboard">Favorite dishes</string>
-    <string name="title_notifications">Random dish</string>
+    <string name="title_all_dishes">All dishes</string>
+    <string name="title_fav_dishes">Favorite dishes</string>
+    <string name="title_random_dish">Random dish</string>
 
     <string name="splash_screen_title">Fav Dish</string>
 

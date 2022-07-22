@@ -21,8 +21,8 @@ class FavDishAdapter(private val fragment: Fragment) : RecyclerView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val binding: ItemDishLayoutBinding = ItemDishLayoutBinding.inflate(LayoutInflater
-            .from(fragment.context), parent, false)
+        val binding: ItemDishLayoutBinding = ItemDishLayoutBinding.inflate(
+            LayoutInflater.from(fragment.context), parent, false)
 
         return ViewHolder(binding)
     }

@@ -17,15 +17,13 @@ abstract class FavDishRoomDatabase : RoomDatabase() {
 
         fun getDatabase(context: Context): FavDishRoomDatabase {
 
-            // if INSTANCE is not null - return it
-            // if it is - create database
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     FavDishRoomDatabase::class.java,
                     "fav_dish_database"
                 )
-                    .fallbackToDestructiveMigration()
+                    //.fallbackToDestructiveMigration()
                     .build()
 
                 INSTANCE = instance

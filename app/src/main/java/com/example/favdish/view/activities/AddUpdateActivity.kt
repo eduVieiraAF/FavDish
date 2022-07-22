@@ -174,15 +174,15 @@ class AddUpdateActivity : AppCompatActivity(), View.OnClickListener {
 
                         else -> {
                             val favDishDetails = FavDish(
-                                mImagePath,
-                                Constants.DISH_IMAGE_SOURCE_LOCAL,
-                                title,
-                                type,
-                                category,
-                                ingredients,
-                                cookingTimeInMinutes,
-                                cookingDirections,
-                                false
+                                image = mImagePath,
+                                imageSource = Constants.DISH_IMAGE_SOURCE_LOCAL,
+                                title = title,
+                                type = type,
+                                category = category,
+                                ingredients = ingredients,
+                                cookingTime = cookingTimeInMinutes,
+                                directionToCook = cookingDirections,
+                                favoriteDish = false
                             )
 
                             mFavDishViewModel.insert(favDishDetails)

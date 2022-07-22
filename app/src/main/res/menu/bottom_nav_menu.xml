@@ -4,16 +4,16 @@
     <item
         android:id="@+id/navigation_all_dishes"
         android:icon="@drawable/ic_all_dishes"
-        android:title="@string/title_home" />
+        android:title="@string/title_all_dishes" />
 
     <item
         android:id="@+id/navigation_favorite_dishes"
         android:icon="@drawable/ic_favorite_dish"
-        android:title="@string/title_dashboard" />
+        android:title="@string/title_fav_dishes" />
 
     <item
         android:id="@+id/navigation_random_dish"
         android:icon="@drawable/ic_random_dish"
-        android:title="@string/title_notifications" />
+        android:title="@string/title_random_dish" />
 
 </menu>
