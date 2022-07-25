@@ -1,4 +1,5 @@
-@file:Suppress("OverrideDeprecatedMigration", "OverrideDeprecatedMigration",
+@file:Suppress(
+    "OverrideDeprecatedMigration", "OverrideDeprecatedMigration",
     "OverrideDeprecatedMigration"
 )
 
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.favdish.R
 import com.example.favdish.application.FavDishApplication
 import com.example.favdish.databinding.FragmentAllDishesBinding
+import com.example.favdish.model.entities.FavDish
 import com.example.favdish.view.activities.AddUpdateActivity
 import com.example.favdish.view.activities.MainActivity
 import com.example.favdish.view.adapters.FavDishAdapter
@@ -73,16 +75,20 @@ class AllDishesFragment : Fragment() {
         }
     }
 
-    fun dishDetails(){
-        findNavController().navigate(AllDishesFragmentDirections.actionAllDishesToDishDetails())
+    fun dishDetails(favDish: FavDish) {
+        findNavController().navigate(
+            AllDishesFragmentDirections.actionAllDishesToDishDetails(favDish)
+        )
 
-        if (requireActivity() is MainActivity) (activity as MainActivity?)!!.hideBottomNavigationView()
+        if (requireActivity() is MainActivity) (activity as MainActivity?)!!
+            .hideBottomNavigationView()
     }
 
     override fun onResume() {
         super.onResume()
 
-        if (requireActivity() is MainActivity) (activity as MainActivity?)!!.showBottomNavigationView()
+        if (requireActivity() is MainActivity) (activity as MainActivity?)!!
+            .showBottomNavigationView()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

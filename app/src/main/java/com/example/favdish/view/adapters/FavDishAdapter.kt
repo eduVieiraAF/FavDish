@@ -38,7 +38,7 @@ class FavDishAdapter(private val fragment: Fragment) : RecyclerView
 
         holder.itemView.setOnClickListener {
             if (fragment is AllDishesFragment) {
-                fragment.dishDetails()
+                fragment.dishDetails(dish)
             }
         }
     }

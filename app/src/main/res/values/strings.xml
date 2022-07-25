@@ -38,7 +38,7 @@
     <string name="err_msg_select_dish_cooking_time">Select dish cooking time</string>
     <string name="err_msg_enter_dish_cooking_directions">Enter cooking directions</string>
     <string name="label_no_dishes_added_yet">No dishes added yet!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+        <string name="lbl_estimate_cooking_time">The approx time required to cook is %1$s minutes</string>
 
 </resources>
