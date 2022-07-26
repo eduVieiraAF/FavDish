@@ -23,7 +23,7 @@ abstract class FavDishRoomDatabase : RoomDatabase() {
                     FavDishRoomDatabase::class.java,
                     "fav_dish_database"
                 )
-                    //.fallbackToDestructiveMigration()
+                    .fallbackToDestructiveMigration()
                     .build()
 
                 INSTANCE = instance
