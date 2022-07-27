@@ -1,7 +1,6 @@
 package com.example.favdish.viewmodel
 
 import androidx.lifecycle.*
-import com.example.favdish.application.FavDishApplication
 import com.example.favdish.model.database.FavDishRepository
 import com.example.favdish.model.entities.FavDish
 import kotlinx.coroutines.launch

@@ -24,7 +24,7 @@ class RandomDishFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val notificationsViewModel =
-            ViewModelProvider(this).get(RandomDishViewModel::class.java)
+            ViewModelProvider(this)[RandomDishViewModel::class.java]
 
         _binding = FragmentRandomDishBinding.inflate(inflater, container, false)
         val root: View = binding.root

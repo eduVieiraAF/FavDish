@@ -1,6 +1,6 @@
 @file:Suppress(
     "OverrideDeprecatedMigration", "OverrideDeprecatedMigration",
-    "OverrideDeprecatedMigration"
+    "OverrideDeprecatedMigration", "DEPRECATION"
 )
 
 package com.example.favdish.view.fragments
@@ -39,7 +39,7 @@ class AllDishesFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mBinding = FragmentAllDishesBinding.inflate(inflater, container, false)
 
         return mBinding.root
@@ -85,11 +85,13 @@ class AllDishesFragment : Fragment() {
             .showBottomNavigationView()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_all_dishes, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
