@@ -78,7 +78,7 @@
             android:id="@+id/et_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="textCapWords"
             android:textColor="@color/grey_900"
             android:textSize="@dimen/_15sdp"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -155,7 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:inputType="textMultiLine"
+            android:inputType="textMultiLine|textCapWords"
             android:minLines="5"
             android:textColor="@color/grey_900"
             android:textSize="@dimen/_15sdp"
@@ -209,7 +209,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:inputType="text"
+            android:inputType="textMultiLine|textCapWords"
+            android:minLines="5"
             android:textColor="@color/grey_900"
             android:textSize="@dimen/_15sdp"/>
 
@@ -218,7 +219,7 @@
       <Button
           android:id="@+id/btn_add_dish"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
+          android:layout_height="@dimen/_55sdp"
           android:layout_gravity="center"
           android:layout_marginStart="@dimen/_16sdp"
           android:layout_marginTop="@dimen/_20sdp"
@@ -227,6 +228,7 @@
           android:foreground="?attr/selectableItemBackground"
           android:gravity="center"
           android:text="@string/lbl_add_dish"
+          android:textStyle="bold"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintStart_toStartOf="parent"
