@@ -1,46 +1,36 @@
 package com.example.favdish.view.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.favdish.application.FavDishApplication
 import com.example.favdish.databinding.FragmentFavoriteDishesBinding
-import com.example.favdish.viewmodel.DashboardViewModel
+import com.example.favdish.view.adapters.FavDishAdapter
 import com.example.favdish.viewmodel.FavDishViewModel
 import com.example.favdish.viewmodel.FavDishViewModelFactory
 
 class FavoriteDishesFragment : Fragment() {
 
-    private var _binding: FragmentFavoriteDishesBinding? = null
+    private var mBinding: FragmentFavoriteDishesBinding? = null
 
     private val mFavDishViewModel: FavDishViewModel by viewModels {
         FavDishViewModelFactory((requireActivity().application as FavDishApplication).repository)
     }
 
-    private val binding get() = _binding!!
+    //private val binding get() = mBinding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        mBinding = FragmentFavoriteDishesBinding.inflate(inflater, container, false)
 
-        _binding = FragmentFavoriteDishesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        return mBinding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,12 +39,20 @@ class FavoriteDishesFragment : Fragment() {
         mFavDishViewModel.favoriteDishes.observe(viewLifecycleOwner) {
             dishes ->
             dishes.let {
+                mBinding!!.rvFavoriteDishesList.layoutManager = GridLayoutManager(
+                    requireActivity(), 2
+                )
+
+                val adapter = FavDishAdapter(this)
+                mBinding!!.rvFavoriteDishesList.adapter = adapter
+
                 if(it.isNotEmpty()) {
-                    for (dish in it) {
-                        Log.i("Favorite Dish", "→ ${dish.id} :: ${dish.title}")
-                    }
+                    mBinding!!.rvFavoriteDishesList.visibility = View.VISIBLE
+                    mBinding!!.tvNoFavoriteDishesAvailable.visibility = View.GONE
+                    adapter.dishesList(it)
                 } else {
-                    Log.i("List of Favorite Dishes", "is empty.")
+                    mBinding!!.rvFavoriteDishesList.visibility = View.GONE
+                    mBinding!!.tvNoFavoriteDishesAvailable.visibility = View.VISIBLE
                 }
             }
         }
@@ -62,6 +60,6 @@ class FavoriteDishesFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        mBinding = null
     }
 }
