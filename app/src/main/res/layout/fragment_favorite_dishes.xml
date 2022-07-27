@@ -23,7 +23,7 @@
         android:gravity="center"
         android:text="@string/label_no_favorite_dishes_added_yet"
         android:textSize="@dimen/_18sdp"
-        android:textColor="@color/primary_color"
+        android:textColor="@color/secondary_dark_color"
         android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"

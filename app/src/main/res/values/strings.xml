@@ -17,7 +17,7 @@
     <string name="lbl_cooking_time_in_minutes">Cooking Time In Minutes</string>
     <string name="lbl_direction_to_cook">Directions To Cook</string>
     <string name="lbl_add_dish">ADD DISH</string>
-    <string name="label_no_favorite_dishes_added_yet">No favorite dishes added yet.</string>
+    <string name="label_no_favorite_dishes_added_yet">No favorite dishes added yet…</string>
 
     <string name="title_select_image_action">Select Image From</string>
     <string name="lbl_camera">Camera</string>
