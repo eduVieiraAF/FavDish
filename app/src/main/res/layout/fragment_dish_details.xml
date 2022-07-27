@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--TODO Step 1: Design the Dish Details layout.-->
-<!--START-->
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rl_dish_detail_main"
@@ -71,8 +70,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_type"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
             android:textColor="@color/grey_500"
             android:textSize="@dimen/_14sdp"
             tools:text="Category" />
@@ -133,4 +132,3 @@
             tools:text="@string/lbl_estimate_cooking_time" />
     </RelativeLayout>
 </ScrollView>
-    <!--END-->
