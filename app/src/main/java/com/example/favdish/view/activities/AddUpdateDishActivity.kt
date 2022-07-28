@@ -108,10 +108,11 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
             supportActionBar?.let {
                 it.title = resources.getString(R.string.title_add_dish)
             }
-
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            mBinding.toolbarAddDishActivity.setNavigationOnClickListener { onBackPressed() }
         }
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+        mBinding.toolbarAddDishActivity.setNavigationOnClickListener { onBackPressed() }
     }
 
     override fun onClick(v: View?) {
