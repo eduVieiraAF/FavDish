@@ -17,6 +17,7 @@
     <string name="lbl_cooking_time_in_minutes">Cooking Time In Minutes</string>
     <string name="lbl_direction_to_cook">Directions To Cook</string>
     <string name="lbl_add_dish">ADD DISH</string>
+    <string name="label_no_dishes_added_yet">No dishes added yet…</string>
     <string name="label_no_favorite_dishes_added_yet">No favorite dishes added yet…</string>
 
     <string name="title_select_image_action">Select Image From</string>
@@ -38,7 +39,6 @@
     <string name="err_msg_enter_dish_ingredients">Enter dish ingredients</string>
     <string name="err_msg_select_dish_cooking_time">Select dish cooking time</string>
     <string name="err_msg_enter_dish_cooking_directions">Enter cooking directions</string>
-    <string name="label_no_dishes_added_yet">No dishes added yet!</string>
     <string name="msg_added_to_favorites">Dish has been added to favorites</string>
     <string name="msg_removed_fro_favorites">Dish has been removed from favorites</string>
 
