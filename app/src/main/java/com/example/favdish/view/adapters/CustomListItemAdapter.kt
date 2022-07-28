@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.favdish.databinding.ItemCustomListBinding
-import com.example.favdish.view.activities.AddUpdateActivity
+import com.example.favdish.view.activities.AddUpdateDishActivity
 
 class CustomListItemAdapter(
     private val activity: Activity,
@@ -32,7 +32,7 @@ class CustomListItemAdapter(
 
         holder.tvText.text = item
         holder.itemView.setOnClickListener {
-            if (activity is AddUpdateActivity) activity.selectedListItem(item, selection)
+            if (activity is AddUpdateDishActivity) activity.selectedListItem(item, selection)
         }
     }
 

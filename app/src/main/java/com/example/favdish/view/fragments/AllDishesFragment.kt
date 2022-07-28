@@ -16,7 +16,7 @@ import com.example.favdish.R
 import com.example.favdish.application.FavDishApplication
 import com.example.favdish.databinding.FragmentAllDishesBinding
 import com.example.favdish.model.entities.FavDish
-import com.example.favdish.view.activities.AddUpdateActivity
+import com.example.favdish.view.activities.AddUpdateDishActivity
 import com.example.favdish.view.activities.MainActivity
 import com.example.favdish.view.adapters.FavDishAdapter
 import com.example.favdish.viewmodel.FavDishViewModel
@@ -96,7 +96,7 @@ class AllDishesFragment : Fragment() {
 
         when (item.itemId) {
             R.id.action_add_dish -> {
-                startActivity(Intent(requireActivity(), AddUpdateActivity::class.java))
+                startActivity(Intent(requireActivity(), AddUpdateDishActivity::class.java))
                 return true
             }
         }
