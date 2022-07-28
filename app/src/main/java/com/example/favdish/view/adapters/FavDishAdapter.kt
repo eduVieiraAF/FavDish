@@ -1,7 +1,6 @@
 package com.example.favdish.view.adapters
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -67,12 +66,11 @@ class FavDishAdapter(private val fragment: Fragment) : RecyclerView
                         AddUpdateDishActivity::class.java
                     )
                     intent.putExtra(Constants.EXTRA_DISH_DETAILS, dish)
-
                     fragment.requireActivity().startActivity(intent)
-
-
                 } else if (it.itemId == R.id.action_delete_dish){
-                    Log.i("Clicked", "Delete")
+                    if (fragment is AllDishesFragment) {
+                        fragment.deleteDish(dish)
+                    }
                 }
 
                 true

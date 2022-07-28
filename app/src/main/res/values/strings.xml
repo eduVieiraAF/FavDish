@@ -24,6 +24,11 @@
     <string name="title_edit_dish">Edit Dish</string>
     <string name="lbl_update_dish">UPDATE DISH</string>
 
+    <string name="title_delete_dish">Delete Dish</string>
+    <string name="msg_delete_dish_dialog">Are you sure you want to delete %1$s?</string>
+    <string name="lbl_yes">Yes</string>
+    <string name="lbl_no">No</string>
+
     <string name="title_select_image_action">Select Image From</string>
     <string name="lbl_camera">Camera</string>
     <string name="lbl_gallery">Gallery</string>
