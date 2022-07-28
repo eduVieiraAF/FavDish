@@ -155,7 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:inputType="textMultiLine|textCapWords"
+            android:inputType="textMultiLine|textCapSentences"
             android:minLines="5"
             android:textColor="@color/grey_900"
             android:textSize="@dimen/_15sdp"
@@ -209,7 +209,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
-            android:inputType="textMultiLine|textCapWords"
+            android:inputType="textMultiLine|textCapSentences"
             android:minLines="5"
             android:textColor="@color/grey_900"
             android:textSize="@dimen/_15sdp"/>
