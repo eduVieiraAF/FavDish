@@ -4,10 +4,12 @@
     <string name="title_fav_dishes">Favorite dishes</string>
     <string name="title_random_dish">Random dish</string>
     <string name="title_dish_details">Dish Details</string>
+    <string name="title_select_item_to_filter">SELECT ITEM TO FILTER</string>
 
     <string name="splash_screen_title">Fav Dish</string>
 
     <string name="action_add_dish">Add Dish</string>
+    <string name="action_filter_dishes">Filter Dishes</string>
 
     <string name="image_contentDescription">image</string>
     <string name="lbl_title">Title</string>
