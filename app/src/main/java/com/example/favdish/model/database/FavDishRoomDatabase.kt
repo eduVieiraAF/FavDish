@@ -28,7 +28,6 @@ abstract class FavDishRoomDatabase : RoomDatabase() {
 
                 INSTANCE = instance
 
-                // return instance
                 instance
             }
         }
