@@ -147,6 +147,7 @@ class AllDishesFragment : Fragment() {
                 return true
             }
         }
+
         return super.onOptionsItemSelected(item)
     }
 }

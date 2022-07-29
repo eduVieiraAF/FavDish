@@ -11,7 +11,6 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
@@ -20,6 +19,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,7 +47,10 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.karumi.dexter.listener.single.PermissionListener
-import java.io.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.OutputStream
 import java.util.*
 
 class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
@@ -238,7 +241,7 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
 
                                 Toast.makeText(
                                     this@AddUpdateDishActivity,
-                                    "Successfully added your favorite dish details.",
+                                    "Successfully added ${favDishDetails.title}",
                                     Toast.LENGTH_SHORT
                                 ).show()
 
@@ -248,11 +251,11 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
 
                                 Toast.makeText(
                                     this@AddUpdateDishActivity,
-                                    "Successfully added your favorite dish details.",
+                                    "Successfully updated ${favDishDetails.title}",
                                     Toast.LENGTH_SHORT
                                 ).show()
 
-                                Log.i("Insertion", "successfully inserted")
+                                Log.i("Insertion", "successfully update ${favDishDetails.title}")
                             }
 
                             finish()
@@ -273,7 +276,6 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
         binding.tvCamera.setOnClickListener {
             Dexter.withContext(this).withPermissions(
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                // Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.CAMERA
             ).withListener(object : MultiplePermissionsListener {
                 override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
@@ -478,7 +480,6 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         private const val CAMERA = 1
         private const val GALLERY = 2
-
         private const val IMAGE_DIRECTORY = "FavDishImages"
     }
 }

@@ -23,7 +23,6 @@ class SplashActivity : AppCompatActivity() {
 
         setContentView(splashBinding.root)
 
-        // getting rid of the status bar
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) window.insetsController?.hide(
             WindowInsets.Type.statusBars()
         )
@@ -50,7 +49,6 @@ class SplashActivity : AppCompatActivity() {
             }
 
             override fun onAnimationRepeat(p0: Animation?) {
-                // no code required
             }
         })
     }

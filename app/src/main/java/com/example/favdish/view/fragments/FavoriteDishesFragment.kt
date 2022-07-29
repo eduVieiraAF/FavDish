@@ -24,8 +24,6 @@ class FavoriteDishesFragment : Fragment() {
         FavDishViewModelFactory((requireActivity().application as FavDishApplication).repository)
     }
 
-    //private val binding get() = mBinding!!
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
