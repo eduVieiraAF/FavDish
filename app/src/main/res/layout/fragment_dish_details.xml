@@ -78,8 +78,8 @@
             android:layout_marginEnd="@dimen/_16sdp"
             android:textColor="@color/grey_500"
             android:textSize="@dimen/_14sdp"
-            tools:text="Category"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            tools:text="Category" />
 
         <TextView
             android:id="@+id/tv_ingredients_label"
