@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/_16sdp"
+    app:cardCornerRadius="@dimen/_8sdp"
     app:cardElevation="@dimen/_5sdp"
     android:outlineSpotShadowColor="@color/primary_dark_color"
     app:cardUseCompatPadding="true"
@@ -22,7 +22,7 @@
             <ImageView
                 android:id="@+id/iv_dish_image"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_120sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_margin="@dimen/_1sdp"
                 android:contentDescription="@string/image_contentDescription"
                 android:scaleType="fitXY"
@@ -45,11 +45,27 @@
             android:id="@+id/tv_dish_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:gravity="center_vertical"
-            android:textColor="@color/primary_dark_color"
-            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="casual"
             android:textStyle="bold"
             tools:text="Dish Title" />
+
+        <TextView
+            android:id="@+id/tv_dish_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:fontFamily="casual"
+            android:text="@string/lbl_type"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/secondary_dark_color"
+            />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

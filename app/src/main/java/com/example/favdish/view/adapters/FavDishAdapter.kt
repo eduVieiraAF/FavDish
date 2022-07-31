@@ -26,6 +26,7 @@ class FavDishAdapter(private val fragment: Fragment) : RecyclerView
         val ivDishImage = view.ivDishImage
         val tvTitle = view.tvDishTitle
         val ibMore = view.ibMore
+        val tvType = view.tvDishType
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -44,6 +45,7 @@ class FavDishAdapter(private val fragment: Fragment) : RecyclerView
             .load(dish.image)
             .into(holder.ivDishImage)
         holder.tvTitle.text = dish.title
+        holder.tvType.text = dish.type
 
         holder.itemView.setOnClickListener {
             if (fragment is AllDishesFragment) {

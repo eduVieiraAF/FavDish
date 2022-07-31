@@ -53,8 +53,9 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:textColor="@color/blue_grey_900"
-            android:textSize="@dimen/_22sdp"
+            android:textSize="@dimen/_20sdp"
             android:textStyle="bold"
+            android:fontFamily="casual"
             tools:text="Dish Title" />
 
         <TextView
@@ -65,7 +66,8 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:textColor="@color/grey_900"
-            android:textSize="@dimen/_16sdp"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="casual"
             tools:text="Type"
             android:textStyle="bold"/>
 
@@ -77,22 +79,24 @@
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:textColor="@color/grey_500"
-            android:textSize="@dimen/_14sdp"
+            android:textSize="@dimen/_13sdp"
             android:textStyle="bold"
+            android:fontFamily="casual"
             tools:text="Category" />
 
         <TextView
             android:id="@+id/tv_ingredients_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_category"
+            android:layout_below="@id/tv_cooking_time"
             android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_6sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="casual"
             android:text="@string/lbl_ingredients"
             android:textColor="@color/blue_grey_900"
-            android:textSize="@dimen/_16sdp"
+            android:textSize="@dimen/_14sdp"
             android:textStyle="bold" />
 
         <TextView
@@ -103,7 +107,8 @@
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:textColor="@color/grey_900"
-            android:textSize="@dimen/_14sdp"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="casual"
             tools:text="Ingredients Value" />
 
         <TextView
@@ -113,8 +118,9 @@
             android:layout_below="@id/tv_ingredients"
             android:layout_margin="@dimen/_10sdp"
             android:text="@string/lbl_direction_to_cook"
-            android:textSize="@dimen/_16sdp"
+            android:textSize="@dimen/_14sdp"
             android:textColor="@color/blue_grey_900"
+            android:fontFamily="casual"
             android:textStyle="bold" />
 
         <TextView
@@ -125,22 +131,24 @@
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:layout_below="@id/tv_cooking_direction_label"
-            android:textSize="@dimen/_14sdp"
+            android:textSize="@dimen/_13sdp"
+            android:fontFamily="casual"
             tools:text="Ingredients Value" />
 
         <TextView
             android:id="@+id/tv_cooking_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_cooking_direction"
+            android:layout_below="@id/tv_category"
             android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_4sdp"
             android:layout_marginEnd="@dimen/_16sdp"
-            android:layout_marginBottom="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
             android:gravity="center"
             android:textColor="@color/grey_500"
-            android:textSize="@dimen/_12sdp"
-            tools:text="@string/lbl_estimate_cooking_time"
-            android:textStyle="bold"/>
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            tools:text="@string/lbl_estimate_cooking_time" />
     </RelativeLayout>
 </ScrollView>
