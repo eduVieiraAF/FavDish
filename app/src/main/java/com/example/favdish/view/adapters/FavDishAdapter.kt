@@ -63,13 +63,13 @@ class FavDishAdapter(private val fragment: Fragment) : RecyclerView
             popup.menuInflater.inflate(R.menu.menu_adapter, popup.menu)
             popup.setOnMenuItemClickListener {
                 if (it.itemId == R.id.action_edit_dish) {
-                    val intent  = Intent(
+                    val intent = Intent(
                         fragment.requireActivity(),
                         AddUpdateDishActivity::class.java
                     )
                     intent.putExtra(Constants.EXTRA_DISH_DETAILS, dish)
                     fragment.requireActivity().startActivity(intent)
-                } else if (it.itemId == R.id.action_delete_dish){
+                } else if (it.itemId == R.id.action_delete_dish) {
                     if (fragment is AllDishesFragment) {
                         fragment.deleteDish(dish)
                     }

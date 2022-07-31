@@ -11,6 +11,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -93,6 +94,12 @@ class AllDishesFragment : Fragment() {
         builder.setMessage(resources.getString(R.string.msg_delete_dish_dialog, dish.title))
         builder.setIcon(android.R.drawable.ic_delete)
         builder.setPositiveButton(resources.getString(R.string.lbl_yes)) { dialogInterface, _ ->
+            val dishTitle = dish.title
+            Toast.makeText(
+                context,
+                "Successfully removed $dishTitle",
+                Toast.LENGTH_SHORT
+            ).show()
             mFavDishViewModel.delete(dish)
             dialogInterface.dismiss()
         }
