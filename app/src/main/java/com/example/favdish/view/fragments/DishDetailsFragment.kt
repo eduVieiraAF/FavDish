@@ -73,10 +73,12 @@ class DishDetailsFragment : Fragment() {
 
                             resource.let {
                                 Palette.from(resource!!.toBitmap()).generate { palette ->
-                                    val intColor = palette?.lightMutedSwatch?.rgb ?: 0
-                                    val hintColor = palette?.darkVibrantSwatch?.rgb ?: 0
+                                    val intColor = palette?.dominantSwatch?.rgb ?: 0
+                                    val hintColor = palette?.mutedSwatch?.rgb ?: 0
+                                    Log.i("Palette", "BG = $intColor || FG = $hintColor")
 
                                     mBinding!!.rlDishDetailMain.setBackgroundColor(intColor)
+                                    mBinding!!.tvTitle.setTextColor(hintColor)
                                     mBinding!!.tvCookingTime.setTextColor(hintColor)
                                     mBinding!!.tvCategory.setTextColor(hintColor)
                                 }
