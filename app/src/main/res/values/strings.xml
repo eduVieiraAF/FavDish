@@ -58,5 +58,6 @@
 
     <string name="action_edit_dish">EDIT</string>
     <string name="action_delete_dish">DELETE</string>
+    <string name="please_wait">Please wait…</string>
 
 </resources>
