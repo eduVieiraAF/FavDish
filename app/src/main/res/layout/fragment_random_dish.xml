@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/srl_random_dish"
     tools:context=".view.fragments.RandomDishFragment">
 
     <ScrollView
@@ -29,7 +30,8 @@
                     android:layout_height="@dimen/_200sdp"
                     android:background="@color/dish_image_background"
                     android:contentDescription="@string/image_contentDescription"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY"
+                    tools:ignore="ImageContrastCheck" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -83,11 +85,12 @@
                 android:layout_below="@id/tv_type"
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
+                android:fontFamily="casual"
                 android:textColor="@color/grey_500"
                 android:textSize="@dimen/_13sdp"
                 android:textStyle="bold"
-                android:fontFamily="casual"
-                tools:text="Category"  />
+                tools:ignore="TextContrastCheck"
+                tools:text="Category" />
 
             <TextView
                 android:id="@+id/tv_ingredients_label"
@@ -149,11 +152,12 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
                 android:layout_marginBottom="@dimen/_4sdp"
+                android:fontFamily="casual"
                 android:gravity="center"
                 android:textColor="@color/grey_500"
                 android:textSize="@dimen/_10sdp"
                 android:textStyle="bold"
-                android:fontFamily="casual"
+                tools:ignore="TextContrastCheck"
                 tools:text="@string/lbl_estimate_cooking_time" />
         </RelativeLayout>
     </ScrollView>

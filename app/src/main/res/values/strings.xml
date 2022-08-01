@@ -52,6 +52,7 @@
     <string name="err_msg_enter_dish_cooking_directions">Enter cooking directions</string>
     <string name="msg_added_to_favorites">Dish has been added to favorites</string>
     <string name="msg_removed_fro_favorites">Dish has been removed from favorites</string>
+    <string name="msg_already_added_to_favorites">Dish has already been added to favorites</string>
 
     <string name="lbl_estimate_cooking_time">The approx time required to cook is %1$s minutes</string>
 
