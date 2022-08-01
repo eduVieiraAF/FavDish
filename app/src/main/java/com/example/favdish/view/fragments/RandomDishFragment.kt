@@ -160,7 +160,7 @@ class RandomDishFragment : Fragment() {
             if (addedToFavorites) {
                 Toast.makeText(
                     requireActivity(),
-                    resources.getString(R.string.msg_already_added_to_favorites),
+                    resources.getString(R.string.msg_already_added_to_favorites, recipe.title),
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
@@ -196,7 +196,7 @@ class RandomDishFragment : Fragment() {
 
                 Toast.makeText(
                     requireActivity(),
-                    resources.getString(R.string.msg_added_to_favorites),
+                    resources.getString(R.string.msg_added_to_favorites, recipe.title),
                     Toast.LENGTH_SHORT
                 ).show()
             }

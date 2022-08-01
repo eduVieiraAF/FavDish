@@ -46,6 +46,7 @@ class DishDetailsFragment : Fragment() {
     @Deprecated("Deprecated in Java")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_share, menu)
+        @Suppress("DEPRECATION")
         super.onCreateOptionsMenu(menu, inflater)
     }
 
@@ -97,6 +98,7 @@ class DishDetailsFragment : Fragment() {
             }
         }
 
+        @Suppress("DEPRECATION")
         return super.onOptionsItemSelected(item)
     }
 
@@ -165,7 +167,6 @@ class DishDetailsFragment : Fragment() {
             mBinding!!.tvType.text = it.dishDetails.type
             mBinding!!.tvCategory.text = it.dishDetails.category
             mBinding!!.tvIngredients.text = it.dishDetails.ingredients
-            //mBinding!!.tvCookingDirection.text = it.dishDetails.directionToCook
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 mBinding!!.tvCookingDirection.text = Html.fromHtml(
                     it.dishDetails.directionToCook,
@@ -209,7 +210,7 @@ class DishDetailsFragment : Fragment() {
 
                 Toast.makeText(
                     requireActivity(),
-                    resources.getString(R.string.msg_added_to_favorites),
+                    resources.getString(R.string.msg_added_to_favorites, args.dishDetails.title),
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
@@ -221,7 +222,7 @@ class DishDetailsFragment : Fragment() {
 
                 Toast.makeText(
                     requireActivity(),
-                    resources.getString(R.string.msg_removed_fro_favorites),
+                    resources.getString(R.string.msg_removed_fro_favorites, args.dishDetails.title),
                     Toast.LENGTH_SHORT
                 ).show()
             }

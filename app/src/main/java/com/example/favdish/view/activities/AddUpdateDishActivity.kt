@@ -282,6 +282,7 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
                     report?.let {
                         if (report.areAllPermissionsGranted()) {
                             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                            @Suppress("DEPRECATION")
                             startActivityForResult(intent, CAMERA)
                         }
                     }
@@ -308,6 +309,7 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
                             Intent.ACTION_PICK,
                             MediaStore.Images.Media.EXTERNAL_CONTENT_URI
                         )
+                        @Suppress("DEPRECATION")
                         startActivityForResult(galleryIntent, GALLERY)
                     }
 
@@ -355,6 +357,7 @@ class AddUpdateDishActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        @Suppress("DEPRECATION")
         super.onActivityResult(requestCode, resultCode, data)
 
         if (resultCode == Activity.RESULT_OK) {
