@@ -59,7 +59,6 @@ class FavoriteDishesFragment : Fragment() {
     }
 
     fun dishDetails(favDish: FavDish) {
-
         findNavController().navigate(
             FavoriteDishesFragmentDirections
                 .actionFavoriteDishesToDishDetails(favDish)

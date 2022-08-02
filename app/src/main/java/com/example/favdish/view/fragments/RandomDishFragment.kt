@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
+import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -65,6 +66,7 @@ class RandomDishFragment : Fragment() {
 
         randomDishViewModelObserver()
 
+        mBinding!!.srlRandomDish.setColorSchemeResources(R.color.primary_color)
         mBinding!!.srlRandomDish.setOnRefreshListener {
             mRandomDishViewModel.getRandomRecipeFromAPI()
         }

@@ -27,6 +27,6 @@ class FavDishViewModelFactory(private val repository: FavDishRepository): ViewMo
             return FavDishViewModel(repository) as T
         }
 
-        throw IllegalArgumentException("Unknown View Model class")
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
