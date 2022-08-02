@@ -2,9 +2,7 @@ package com.example.favdish.view.fragments
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.os.Bundle
-import android.text.Html
 import android.util.Log
 import android.view.*
 import android.widget.Toast
@@ -61,20 +59,10 @@ class DishDetailsFragment : Fragment() {
                 val shareWith = "Share with"
 
                 mFavDishDetails?.let {
-                    var image = ""
+                    val image = ""
+
                     if (it.imageSource == Constants.DISH_IMAGE_SOURCE_ONLINE) {
                         it.image
-                    }
-
-                    var cookingInstructions = ""
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        cookingInstructions = Html.fromHtml(
-                            it.directionToCook,
-                            Html.FROM_HTML_MODE_COMPACT
-                        ).toString()
-                    } else {
-                        @Suppress("DEPRECATION")
-                        cookingInstructions = Html.fromHtml(it.directionToCook).toString()
                     }
 
                     extraText =
@@ -145,14 +133,10 @@ class DishDetailsFragment : Fragment() {
 
                             resource.let {
                                 Palette.from(resource!!.toBitmap()).generate { palette ->
-                                    val intColor = palette?.dominantSwatch?.rgb ?: 0
-                                    val hintColor = palette?.mutedSwatch?.rgb ?: 0
-                                    Log.i("Palette", "BG = $intColor || FG = $hintColor")
-
-                                    mBinding!!.rlDishDetailMain.setBackgroundColor(intColor)
-                                    mBinding!!.tvTitle.setTextColor(hintColor)
-                                    mBinding!!.tvCookingTime.setTextColor(hintColor)
-                                    mBinding!!.tvCategory.setTextColor(hintColor)
+                                    val intColor = palette?.vibrantSwatch?.rgb ?: 0
+                                    mBinding!!.tvTitle.setTextColor(intColor)
+                                    mBinding!!.tvCookingTime.setTextColor(intColor)
+                                    mBinding!!.tvCategory.setTextColor(intColor)
                                 }
                             }
                             return false
@@ -167,15 +151,7 @@ class DishDetailsFragment : Fragment() {
             mBinding!!.tvType.text = it.dishDetails.type
             mBinding!!.tvCategory.text = it.dishDetails.category
             mBinding!!.tvIngredients.text = it.dishDetails.ingredients
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                mBinding!!.tvCookingDirection.text = Html.fromHtml(
-                    it.dishDetails.directionToCook,
-                    Html.FROM_HTML_MODE_COMPACT
-                )
-            } else {
-                @Suppress("DEPRECATION")
-                mBinding!!.tvCookingDirection.text = Html.fromHtml(it.dishDetails.directionToCook)
-            }
+            mBinding!!.tvCookingDirection.text = it.dishDetails.directionToCook
             mBinding!!.tvCookingTime.text = resources.getString(
                 R.string.lbl_estimate_cooking_time,
                 it.dishDetails.cookingTime

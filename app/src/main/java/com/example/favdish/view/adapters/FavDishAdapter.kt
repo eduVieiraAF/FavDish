@@ -1,13 +1,21 @@
 package com.example.favdish.view.adapters
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
+import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.favdish.R
 import com.example.favdish.databinding.ItemDishLayoutBinding
 import com.example.favdish.model.entities.FavDish
@@ -43,6 +51,36 @@ class FavDishAdapter(private val fragment: Fragment) : RecyclerView
 
         Glide.with(fragment)
             .load(dish.image)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    Log.e("PaletteTag", "Failed loading bg color from image.", e)
+
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+
+                    resource.let {
+                        Palette.from(resource!!.toBitmap()).generate { palette ->
+                            val textColor = palette?.darkVibrantSwatch?.rgb ?: 0
+                            holder.tvTitle.setTextColor(textColor)
+                            holder.tvType.setTextColor(textColor)
+                        }
+                    }
+                    return false
+                }
+            })
             .into(holder.ivDishImage)
         holder.tvTitle.text = dish.title
         holder.tvType.text = dish.type

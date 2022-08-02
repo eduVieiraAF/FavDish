@@ -1,19 +1,24 @@
 package com.example.favdish.view.fragments
 
 import android.app.Dialog
-import android.os.Build
+import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.palette.graphics.Palette
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.favdish.R
 import com.example.favdish.application.FavDishApplication
 import com.example.favdish.databinding.FragmentRandomDishBinding
@@ -105,7 +110,37 @@ class RandomDishFragment : Fragment() {
 
         Glide.with(requireActivity())
             .load(recipe.image)
-            .centerCrop()
+            .centerCrop().listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    Log.e("PaletteTag", "Failed loading bg color from image.", e)
+
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+
+                    resource.let {
+                        Palette.from(resource!!.toBitmap()).generate { palette ->
+                            val intColor = palette?.vibrantSwatch?.rgb ?: 0
+                            mBinding!!.tvTitle.setTextColor(intColor)
+                            mBinding!!.tvCookingTime.setTextColor(intColor)
+                            mBinding!!.tvCategory.setTextColor(intColor)
+                        }
+                    }
+                    return false
+                }
+            })
             .into(mBinding!!.ivDishImage)
 
         mBinding!!.tvTitle.text = recipe.title.capitalized()
@@ -121,25 +156,15 @@ class RandomDishFragment : Fragment() {
 
         var ingredients = ""
         for (value in recipe.extendedIngredients) {
-            if (ingredients.isEmpty()) {
-                ingredients = value.original
+            ingredients = if (ingredients.isEmpty()) {
+                value.original
             } else {
-                ingredients = ingredients + ", \n" + value.original
+                ingredients + ", \n" + value.original
             }
         }
 
         mBinding!!.tvIngredients.text = ingredients
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            mBinding!!.tvCookingDirection.text = Html.fromHtml(
-                recipe.instructions,
-                Html.FROM_HTML_MODE_COMPACT
-            )
-        } else {
-            @Suppress("DEPRECATION")
-            mBinding!!.tvCookingDirection.text = Html.fromHtml(recipe.instructions)
-        }
-
+        mBinding!!.tvCookingDirection.text = recipe.instructions.capitalized()
         mBinding!!.ivFavoriteDish.setImageDrawable(
             ContextCompat.getDrawable(
                 requireActivity(),
