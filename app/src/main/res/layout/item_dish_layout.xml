@@ -49,7 +49,7 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:gravity="center_vertical"
-            android:textColor="@color/primary_color"
+            android:textColor="@color/blue_gray_700"
             android:textSize="@dimen/_13sdp"
             android:fontFamily="casual"
             android:textStyle="bold"
@@ -65,7 +65,7 @@
             android:fontFamily="casual"
             android:text="@string/lbl_type"
             android:textSize="@dimen/_10sdp"
-            android:textColor="@color/secondary_dark_color"
+            android:textColor="@color/blue_gray_700"
             />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

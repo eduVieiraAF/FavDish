@@ -49,9 +49,7 @@ class RandomDishFragment : Fragment() {
     }
 
     private fun hideCustomProgressDialog() {
-        mProgressDialog?.let {
-            it.dismiss()
-        }
+        mProgressDialog?.dismiss()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
