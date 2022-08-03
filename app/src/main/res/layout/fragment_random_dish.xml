@@ -155,7 +155,7 @@
                 android:fontFamily="casual"
                 android:gravity="center"
                 android:textColor="@color/grey_500"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_13sdp"
                 android:textStyle="bold"
                 tools:ignore="TextContrastCheck"
                 tools:text="@string/lbl_estimate_cooking_time" />

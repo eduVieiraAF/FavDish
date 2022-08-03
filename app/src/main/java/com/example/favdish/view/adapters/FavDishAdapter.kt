@@ -73,9 +73,16 @@ class FavDishAdapter(private val fragment: Fragment) : RecyclerView
 
                     resource.let {
                         Palette.from(resource!!.toBitmap()).generate { palette ->
-                            val textColor = palette?.darkVibrantSwatch?.rgb ?: 0
-                            holder.tvTitle.setTextColor(textColor)
-                            holder.tvType.setTextColor(textColor)
+                            val textColor1 = palette?.darkVibrantSwatch?.rgb ?: 0
+                            val textColor2 = palette?.vibrantSwatch?.rgb ?: 0
+
+                            if (textColor1 == 0){
+                                holder.tvTitle.setTextColor(textColor2)
+                                holder.tvType.setTextColor(textColor2)
+                            } else {
+                                holder.tvTitle.setTextColor(textColor1)
+                                holder.tvType.setTextColor(textColor1)
+                            }
                         }
                     }
                     return false

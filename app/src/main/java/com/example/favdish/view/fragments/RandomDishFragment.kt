@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
-import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -134,12 +133,27 @@ class RandomDishFragment : Fragment() {
 
                     resource.let {
                         Palette.from(resource!!.toBitmap()).generate { palette ->
-                            val intColor = palette?.vibrantSwatch?.rgb ?: 0
-                            mBinding!!.tvTitle.setTextColor(intColor)
-                            mBinding!!.tvCookingTime.setTextColor(intColor)
-                            mBinding!!.tvCategory.setTextColor(intColor)
+                            val textColor1 = palette?.vibrantSwatch?.rgb ?: 0
+                            val textColor2 = palette?.darkVibrantSwatch?.rgb ?: 0
+                            val textColor3 = palette?.dominantSwatch?.rgb ?: 0
+                            if (textColor1 != 0){
+                                mBinding!!.tvTitle.setTextColor(textColor1)
+                                mBinding!!.tvCookingTime.setTextColor(textColor1)
+                                mBinding!!.tvCategory.setTextColor(textColor1)
+                            } else {
+                                if (textColor2 != 0) {
+                                    mBinding!!.tvCategory.setTextColor(textColor2)
+                                    mBinding!!.tvCookingTime.setTextColor(textColor2)
+                                    mBinding!!.tvCategory.setTextColor(textColor2)
+                                } else {
+                                    mBinding!!.tvTitle.setTextColor(textColor3)
+                                    mBinding!!.tvCookingTime.setTextColor(textColor3)
+                                    mBinding!!.tvCategory.setTextColor(textColor3)
+                                }
+                            }
                         }
                     }
+
                     return false
                 }
             })
