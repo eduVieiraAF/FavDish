@@ -27,11 +27,11 @@ class NotifyWorker(context: Context, workerParams: WorkerParameters): Worker(con
     }
 
     private fun sendNotification() {
-        val notification_id = 0
+        val notificationId = 0
 
         val intent = Intent(applicationContext, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        intent.putExtra(Constants.NOTIFICATION_ID, notification_id)
+        intent.putExtra(Constants.NOTIFICATION_ID, notificationId)
 
         val notificationManager =
             applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -80,6 +80,6 @@ class NotifyWorker(context: Context, workerParams: WorkerParameters): Worker(con
             notificationManager.createNotificationChannel(channel)
         }
 
-        notificationManager.notify(notification_id, notification.build())
+        notificationManager.notify(notificationId, notification.build())
     }
 }

@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         .build()
 
     private fun createWorkRequest() =
-        PeriodicWorkRequestBuilder<NotifyWorker>(25, TimeUnit.MINUTES)
+        PeriodicWorkRequestBuilder<NotifyWorker>(60, TimeUnit.MINUTES)
             .setConstraints(createConstraints())
             .build()
 
