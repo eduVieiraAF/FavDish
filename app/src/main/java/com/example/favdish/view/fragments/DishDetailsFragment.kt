@@ -135,7 +135,7 @@ class DishDetailsFragment : Fragment() {
                                 Palette.from(resource!!.toBitmap()).generate { palette ->
                                     val textColor1 = palette?.vibrantSwatch?.rgb ?: 0
                                     val textColor2 = palette?.darkVibrantSwatch?.rgb ?: 0
-                                    val textColor3 = palette?.dominantSwatch?.rgb ?: 0
+                                    val textColor3 = R.color.blue_grey_900
                                     if (textColor1 != 0){
                                         mBinding!!.tvTitle.setTextColor(textColor1)
                                         mBinding!!.tvCookingTime.setTextColor(textColor1)
