@@ -3,3 +3,5 @@
 # FavDish
 
 ### Udemy intermediate Kotlin course
+
+[![wakatime](https://wakatime.com/badge/github/eduVieiraAF/FavDish.svg)](https://wakatime.com/badge/github/eduVieiraAF/FavDish)
